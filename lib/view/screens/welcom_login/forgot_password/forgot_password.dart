@@ -16,109 +16,111 @@ class ForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = ScreenUtil().screenWidth;
     double screenHeight = ScreenUtil().screenHeight;
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Row(
-              children: [
-                ArrowBackButton(),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 25.0, left: 17.0),
-              child: SizedBox(
-                height: screenHeight * 0.1,
-                width: screenWidth * 0.80,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'Forgot Password?',
-                        softWrap: false,
-                        maxLines: 5,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.urbanist(
-                            color: Colors.grey.shade800,
-                            fontSize: 30.sp,
-                            fontWeight: FontWeight.w700),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Row(
+                children: [
+                  ArrowBackButton(),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 25.0, left: 17.0),
+                child: SizedBox(
+                  height: screenHeight * 0.1,
+                  width: screenWidth * 0.80,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Forgot Password?',
+                          softWrap: false,
+                          maxLines: 5,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.urbanist(
+                              color: Colors.grey.shade800,
+                              fontSize: 30.sp,
+                              fontWeight: FontWeight.w700),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 17.0),
-              child: SizedBox(
-                height: screenHeight * 0.1,
-                width: screenWidth * 0.80,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "Don't worry! It occurs. Please enter the email address linked with your account.",
-                        softWrap: false,
-                        maxLines: 5,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.urbanist(
-                            color: Colors.grey,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500),
+              Padding(
+                padding: const EdgeInsets.only(left: 17.0),
+                child: SizedBox(
+                  height: screenHeight * 0.1,
+                  width: screenWidth * 0.80,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Don't worry! It occurs. Please enter the email address linked with your account.",
+                          softWrap: false,
+                          maxLines: 5,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.urbanist(
+                              color: Colors.grey,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const CustomTextField(txt: 'Enter your email'),
-            SizedBox(
-              height: screenHeight * 0.030,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Button(
-                  bttnText: 'Send Code',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OtpVerification(),
-                      ),
-                    );
-                  },
-                  bttnColor: blkColor,
-                  txtColor: whiteColor,
-                ),
-              ],
-            ),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Remember Password?'),
-                LineButton(
-                    text: 'Login',
-                    onpressed: () {
+              const CustomTextField(txt: 'Enter your email'),
+              SizedBox(
+                height: screenHeight * 0.030,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Button(
+                    bttnText: 'Send Code',
+                    onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
+                          builder: (context) => const OtpVerification(),
                         ),
                       );
-                    }),
-              ],
-            )
-          ],
+                    },
+                    bttnColor: blkColor,
+                    txtColor: whiteColor,
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Remember Password?'),
+                  LineButton(
+                      text: 'Login',
+                      onpressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
+                      }),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
